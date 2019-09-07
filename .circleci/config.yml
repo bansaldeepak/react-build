@@ -26,7 +26,7 @@ jobs:
     - checkout
     - run:
         name: Tests fake browser
-        command: yarn test
+        command: yarn test a
     - run:
         name: Tests fake browser
         command: yarn test --coverage
