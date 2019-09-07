@@ -1,7 +1,6 @@
 version: 2
 jobs:
   checkout:
-    # working_directory: /src
     docker:
     - image: circleci/node:8.15
     steps:
@@ -16,15 +15,11 @@ jobs:
     - run:
         name: Should not have any git not staged
         command: git diff --exit-code
-    # - run:
-    #     name: Check for duplicated packages
-    #     command: yarn deduplicate
     - save_cache:
         key: v2-yarn-sha-{{ checksum "yarn.lock" }}
         paths:
         - ~/.cache/yarn/v4
   test_unit:
-    # <<: *defaults
     steps:
     - checkout
     - install_js
@@ -53,4 +48,4 @@ workflows:
             - /dependabot\//
     - test_unit:
         requires:
-          - checkout
+        - checkout
