@@ -1,7 +1,7 @@
 version: 2
 jobs:
   checkout:
-    working_directory: /src
+    # working_directory: /src
     docker:
     - image: circleci/node:8.15
     steps:
