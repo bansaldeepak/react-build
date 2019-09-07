@@ -155,9 +155,9 @@ workflows:
       - test_browser:
           requires:
             - checkout
-      - test_regressions:
-          requires:
-            - test_unit
-            - test_static
-            - test_types
-            - test_browser
+      # - test_regressions:
+      #     requires:
+      #       - test_unit
+      #       - test_static
+      #       - test_types
+      #       - test_browser
