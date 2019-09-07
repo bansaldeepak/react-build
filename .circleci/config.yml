@@ -23,8 +23,7 @@ jobs:
         name: Run Tests
         command: |
           yarn test:coverage
-          q
-          if ! [[ -s /test.json ]]
+          if ! [[ -s test.json ]]
           then
             exit 1
           fi
