@@ -20,6 +20,8 @@ jobs:
         paths:
         - ~/.cache/yarn/v4
   test_unit:
+    docker:
+    - image: circleci/node:8.15
     steps:
     - checkout
     - install_js
