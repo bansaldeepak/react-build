@@ -24,7 +24,6 @@ jobs:
     - image: circleci/node:8.15
     steps:
     - checkout
-    - install_js
     - run:
         name: Tests fake browser
         command: yarn test
