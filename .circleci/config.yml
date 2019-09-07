@@ -19,17 +19,9 @@ jobs:
         key: v2-yarn-sha-{{ checksum "yarn.lock" }}
         paths:
         - ~/.cache/yarn/v4
-  test_unit:
-    docker:
-    - image: circleci/node:8.15
-    steps:
-    - checkout
     - run:
-        name: Tests fake browser
-        command: yarn test --watchAll
-    - run:
-        name: Tests fake browser
-        command: yarn test --coverage
+        name: Run Tests
+        command: yarn test:coverage
     - run:
         name: Check coverage generated
         command: |
@@ -47,6 +39,3 @@ workflows:
             ignore:
             - l10n
             - /dependabot\//
-    - test_unit:
-        requires:
-        - checkout
