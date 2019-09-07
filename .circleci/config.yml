@@ -23,6 +23,24 @@ jobs:
         key: v2-yarn-sha-{{ checksum "yarn.lock" }}
         paths:
         - ~/.cache/yarn/v4
+  test_unit:
+    <<: *defaults
+    steps:
+      - checkout
+      - install_js
+      - run:
+          name: Tests fake browser
+          command: yarn test
+      - run:
+          name: Tests fake browser
+          command: yarn test --coverage
+      - run:
+          name: Check coverage generated
+          command: |
+            if ! [[ -s coverage/lcov.info ]]
+            then
+              exit 1
+            fi
 workflows:
   version: 2
   pipeline:
@@ -33,3 +51,6 @@ workflows:
             ignore:
             - l10n
             - /dependabot\//
+    - test_unit:
+        requires:
+          - checkout
