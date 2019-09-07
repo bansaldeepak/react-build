@@ -24,7 +24,7 @@ jobs:
         paths:
         - ~/.cache/yarn/v4
   test_unit:
-    <<: *defaults
+    # <<: *defaults
     steps:
       - checkout
       - install_js
