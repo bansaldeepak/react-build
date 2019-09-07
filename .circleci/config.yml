@@ -143,18 +143,18 @@ workflows:
               ignore: 
                 - l10n
                 - /dependabot\//
-      - test_unit:
-          requires:
-            - checkout
-      - test_static:
-          requires:
-            - checkout
-      - test_types:
-          requires:
-            - checkout
-      - test_browser:
-          requires:
-            - checkout
+      # - test_unit:
+      #     requires:
+      #       - checkout
+      # - test_static:
+      #     requires:
+      #       - checkout
+      # - test_types:
+      #     requires:
+      #       - checkout
+      # - test_browser:
+      #     requires:
+      #       - checkout
       # - test_regressions:
       #     requires:
       #       - test_unit
