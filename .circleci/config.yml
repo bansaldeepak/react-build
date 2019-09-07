@@ -21,7 +21,12 @@ jobs:
         - ~/.cache/yarn/v4
     - run:
         name: Run Tests
-        command: yarn test:coverage
+        command: |
+          yarn test:coverage
+          if ! [[ -s test.json ]]
+          then
+            exit 1
+          fi
     - run:
         name: Check coverage generated
         command: |
